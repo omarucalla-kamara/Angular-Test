@@ -1,0 +1,41 @@
+<div class="container">
+
+
+<div class="row">
+  <h2>Attendance List</h2>
+  <table class="table table-bordered" style="border: goldenrod">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Date</th>
+      <th scope="col">Time-In</th>
+      <th scope="col">Time-Out</th>
+    </tr>
+  <tr *ngFor="let list of studentList">
+    <td>{{list.id}}</td>
+    <td>{{list.fName}}</td>
+    <td>{{list.lName}}</td>
+    <td>{{list.date}}</td>
+    <td>{{list.timeIn}}</td>
+    <td>{{list.timeOut}}</td>
+  </tr>
+    </thead>
+  </table>
+  <hr>
+  <div>
+    <form (ngSubmit)="newEntry()">
+      <div>
+        <input type="number" id="id" [(ngModel)]="newStudentList.id" name="id" placeholder="ID" required>
+        <input type="text" id="fName" [(ngModel)]="newStudentList.fName" name="fName" placeholder="First Name" required>
+        <input type="text" id="lName" [(ngModel)]="newStudentList.lName" name="lName" placeholder="Last Name" required>
+        <input type="date" id="date" [(ngModel)]="newStudentList.date" name="date" placeholder="Date" required>
+        <input type="time" id="timeIn" [(ngModel)]="newStudentList.timeIn" name="timeIn" placeholder="Time-In" required>
+        <input type="time" id="timeOut" [(ngModel)]="newStudentList.timeOut" name="timeOut" placeholder="Time-Out" required>
+      </div>
+      <button class="btn btn-outline-success mt-2" type="submit">New Entry</button>
+    </form>
+  </div>
+</div>
+</div>
